@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap');
+
+:root {
+    /*color scheme*/
+    --red: hsl(0, 100%, 66%);
+    --white: hsl(0, 0%, 100%);
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+    --linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+
+    /**Typography*/
+    --font-fm: 'Space Grotesk', sans-serif;
+    --font-sz: 1.125rem;
+    --font-wt: 500;
+}
+
+/**Css reset*/
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    display: block;
+}
+
+body {
+    font-family: var(--font-fm);
+    font-size: var(--font-sz);
+    font-weight: var(--font-wt);
+    line-height: 1.2;
+}
+
+.card {
+    display: flex;
+    flex-flow: row;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.error-message {
+    color: var(--red);
+    font-size: 0.9rem;
+}
+
+.card>* {
+    flex-basis: 100%;
+}
+
+.card-illustrator {
+    background-image: url(./images/bg-main-desktop.png);
+    background-size: 65%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    letter-spacing: 0.2rem;
+}
+
+.card-illustrator--item {
+    background-image: url(./images/bg-card-front.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 65%;
+    height: 38%;
+    margin: 0 8rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    padding: 2rem;
+    box-shadow: rgba(17, 12, 46, 0.15) 5px 10px 100px 0;
+}
+
+/*Card front content*/
+.card-front {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.card-front .card-number {
+    color: var(--white);
+    font-size: clamp(0.6rem, 4.5vw, 1.6rem);
+}
+
+.card-front--name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-holder-name,
+.card-year {
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/*Card back content*/
+.card-back {
+    background-image: url(./images/bg-card-back.png);
+    position: relative;
+    left: 15%;
+}
+
+.card-back .cvc {
+    color: var(--white);
+    position: relative;
+    left: 85%;
+    margin-top: 20%;
+}
+
+/*Form content*/
+.card-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card-form>* {
+    flex-basis: 100%;
+}
+
+.form {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 2rem;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.form-item {
+    display: flex;
+    flex-flow: column;
+    gap: 0.3rem;
+}
+
+
+label {
+    font-size: clamp(0.7rem, 4.5vw, 0.8rem);
+    font-weight: 600;
+    color: var(--very-dark-violet);
+    text-transform: uppercase;
+}
+
+input {
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+    border: 1px solid var(--light-grayish-violet);
+    width: 100%;
+}
+
+input::placeholder {
+    color: var(--dark-grayish-violet);
+    font-size: 0.9rem;
+    font-family: var(--font-fm);
+}
+
+.form-item--group {
+    display: grid;
+    grid-template-columns: 45% 50%;
+    gap: 1rem;
+}
+
+.input-group,
+.cvctext {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.input-group>* {
+    flex-basis: 100%;
+}
+
+.button {
+    padding: 0.9rem;
+    background-color: var(--very-dark-violet);
+    color: var(--white);
+    border-radius: 0.4rem;
+    position: relative;
+    transition: all 0.5s;
+    font-size: 16px;
+}
+
+.button:active {
+    top: -0.2rem;
+}
+
+
+@media (max-width: 767px) {
+    .card {
+        flex-flow: column;
+    }
+
+    .card-illustrator {
+        background-image: url(./images/bg-main-mobile.png);
+        background-size: cover;
+        flex-flow: column-reverse;
+        gap: 0;
+        padding: 2.5rem 0;
+    }
+
+    .card-illustrator--item {
+        width: 85%;
+        height: 30vh;
+        margin: 0rem auto;
+        padding: 1rem;
+    }
+
+    .card-front {
+        position: absolute;
+        top: 24.7%;
+        left: 4%;
+        gap: 1rem;
+        z-index: 1;
+    }
+
+
+    .card-back {
+        left: 5%;
+    }
+
+    .card-form {
+        position: relative;
+        top: 4rem;
+        padding: 2rem 0;
+    }
+
+    .form {
+        width: 80%;
+        padding-bottom: 4rem;
+    }
+
+}
